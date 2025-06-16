@@ -10,8 +10,8 @@ WORKDIR /app
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["20MRows/20MRows.csproj", "20MRows/"]
-RUN dotnet restore "./20MRows/20MRows.csproj"
+COPY ["20MRows.csproj", "20MRows/"]
+RUN dotnet restore "./20MRows.csproj"
 COPY . .
 WORKDIR "/src/20MRows"
 RUN dotnet build "./20MRows.csproj" -c $BUILD_CONFIGURATION -o /app/build
